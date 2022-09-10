@@ -5,7 +5,16 @@ import pyqtgraph
 class SineGraphView:
 
     def __init__(self, controller, min_amp:int = 1, max_amp: int = 10, min_freq: int = 1, max_freq: int = 10) -> None:
-       
+        """Initializes all of the elements in the window and lays them out
+
+        Args:
+            controller (SineGraphController): The controller that connects this view to a model
+            min_amp (int, optional): The minimum ampiltude for the slider. Defaults to 1.
+            max_amp (int, optional): The maximum amplitude for the slider. Defaults to 10.
+            min_freq (int, optional): The minimum frequency for the slider. Defaults to 1.
+            max_freq (int, optional): The maximum frequency for the slider. Defaults to 10.
+        """
+
         self.controller = controller
 
         # creating GUI components
@@ -59,6 +68,7 @@ class SineGraphView:
     def update_values(self):
         """Updates all values impacted when a slider is moved
         """
+
         # creating a new plot
         self.plot.clear()
         self.controller.updateAandFandYVals()
@@ -68,8 +78,26 @@ class SineGraphView:
         self.amp_value.setText(self.controller.getStrA())
         self.freq_value.setText(self.controller.getStrF())
 
-    def getViewA(self):
+    def getViewA(self) -> int:
+        """Gets the value of the amplitude slider
+
+        Returns:
+            int: the value of the amplitude slider
+        """
+
         return self.amp_slider.value()
 
-    def getViewV(self):
+    def getViewF(self) -> int:
+        """Gets the value of the frequency slider
+
+        Returns:
+            int: the value of the frequency slider
+        """
+
         return self.freq_slider.value()
+
+    def runApp(self):
+        """executes the app
+        """
+
+        self.app.exec_()
