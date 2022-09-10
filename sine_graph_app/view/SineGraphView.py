@@ -56,21 +56,20 @@ class SineGraphView:
 
         self.w.show()
 
-        self.app.exec_()
-
     def update_values(self):
         """Updates all values impacted when a slider is moved
         """
-
-        # updating the amplitude and frequency
-        a = self.amp_slider.value()
-        f = self.freq_slider.value()
-        
         # creating a new plot
         self.plot.clear()
-        self.controller.updateAandFandYVals(a, f)
+        self.controller.updateAandFandYVals()
         self.plot.plot(self.controller.getXVals(), self.controller.getYVals(), pen='r')
 
         # updating the labels by the sliders
         self.amp_value.setText(self.controller.getStrA())
         self.freq_value.setText(self.controller.getStrF())
+
+    def getViewA(self):
+        return self.amp_slider.value()
+
+    def getViewV(self):
+        return self.freq_slider.value()

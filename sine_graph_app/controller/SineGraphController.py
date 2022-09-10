@@ -3,12 +3,10 @@ import model.SineGraphModel as m
 
 class SineGraphController:
 
-    def __init__(self) -> None:
-        
+    def __init__(self) -> None:       
         self.model = m.SineGraphModel(self)
         self.view = v.SineGraphView(self)
         
-
     def getYVals(self):
         return self.model.getYVals()
 
@@ -27,5 +25,14 @@ class SineGraphController:
     def getStrF(self):
         return self.model.getStrF()
 
-    def updateAandFandYVals(self, new_a, new_f):
-        self.model.updateAandFandYVals(new_a, new_f)
+    def updateAandFandYVals(self):
+        self.model.updateAandFandYVals()
+
+    def getViewA(self):
+        return self.view.getViewA()
+
+    def getViewF(self):
+        return self.view.getViewV()
+
+    def runApp(self):
+        self.view.app.exec_()

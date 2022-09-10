@@ -1,3 +1,4 @@
 import controller.SineGraphController as c
 
-c.SineGraphController()
+app = c.SineGraphController()
+app.runApp()

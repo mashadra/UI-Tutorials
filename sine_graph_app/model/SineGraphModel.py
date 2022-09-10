@@ -29,7 +29,7 @@ class SineGraphModel:
     def getStrF(self):
         return str(self.f)
 
-    def updateAandFandYVals(self, new_a, new_f):
-        self.a = new_a
-        self.f = new_f
+    def updateAandFandYVals(self):
+        self.a = self.controller.getViewA()
+        self.f = self.controller.getViewF()
         self.getYVals()
